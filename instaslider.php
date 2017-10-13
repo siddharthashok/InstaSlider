@@ -3,14 +3,11 @@
 Plugin Name: InstaSlider
 Description: To Show Instagram Feed slider
 Author: Siddharth Ashok
-Author URI: http://sidd.id
+Author URI: http://sidd.in
 Version: 1.0
 */
 
 // Enqueue files for Instaslider
-
-
-
 function enqueue_css_instaslider() {
     wp_enqueue_style( 'instaslider-owl-carousel', plugin_dir_url(__FILE__) . '/css/owl.carousel.min.css', true);
     wp_enqueue_style( 'instaslider-owl-carousel-theme', plugin_dir_url(__FILE__) . '/css/owl.theme.default.min.css', true);
