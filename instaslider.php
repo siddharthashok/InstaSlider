@@ -32,18 +32,18 @@ function enqueue_css_instaslider() {
 
 add_action( 'wp_enqueue_scripts', 'enqueue_css_instaslider' );
 
-function instaslider_register_options_page() {
-  add_options_page('InstaSlider', 'InstaSlider', 'manage_options', 'instaslider', 'instaslider_options_page');
-}
-add_action('admin_menu', 'instaslider_register_options_page');
-
 function instaslider_register_settings() {
    add_option( 'instaslider_option_name', 'InstaSlider');
    register_setting( 'instaslider_options_group', 'instaslider_option_name', 'instaslider_callback' );
 }
 add_action( 'admin_init', 'instaslider_register_settings' );
 
-function instaslider_register_settings()
+function instaslider_register_options_page() {
+  add_options_page('InstaSlider', 'InstaSlider', 'manage_options', 'instaslider', 'instaslider_options_page');
+}
+add_action('admin_menu', 'instaslider_register_options_page');
+
+function instaslider_options_page()
 {
 ?>
   <div>
