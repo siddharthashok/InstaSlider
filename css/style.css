@@ -1,0 +1,10 @@
+#instagram { background: #ffffff; padding: 50px 0px; text-align: center; }
+#instagram h3, #instagram p {color: #ffffff; }
+#instagram a {color: yellow; }
+#instagram .owl-dots {display: none; }
+#instagram .item img {border-radius: 3px; }
+
+.owl-theme .owl-nav { margin: 0px; top: calc(50% - 15px); position: absolute; width: 100%;}
+.owl-theme .owl-nav .owl-prev {float: left;}
+.owl-theme .owl-nav .owl-next {float: right;}
+.owl-carousel .owl-item .item {height: 400px; display: flex; align-items: center; justify-content: center;}
