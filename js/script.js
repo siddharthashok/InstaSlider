@@ -1,4 +1,8 @@
 console.log("Sidd");
+var instaUserID = scriptParams.instaUserID;
+var instaAccessToken = scriptParams.instaAccessToken;
+var fileDirectory = scriptParams.fileDirectory;
+
 
 jQuery(document).ready(function($){
   // Instagram Feed

@@ -7,19 +7,9 @@ Author URI: http://sidd.id
 Version: 1.0
 */
 
-?>
-
-<script type="text/javascript">
-  // var instaUserID = "<?php echo get_theme_mod( 'user_id', '' ); ?>";
-  // var instaAccessToken = "<?php echo get_theme_mod( 'access_token', '' ); ?>";
-
-  var instaUserID = "212129007";
-  var instaAccessToken = "212129007.1677ed0.54011f83990548bc8070b30827050b3d";
-  var fileDirectory = "<?php echo plugin_dir_url(__FILE__); ?>";
-</script>
-
-<?php
 // Enqueue files for Instaslider
+
+
 
 function enqueue_css_instaslider() {
     wp_enqueue_style( 'instaslider-owl-carousel', plugin_dir_url(__FILE__) . '/css/owl.carousel.min.css', true);
@@ -28,8 +18,15 @@ function enqueue_css_instaslider() {
     wp_enqueue_script('instaslider-script-owl-carousel', plugin_dir_url(__FILE__) . '/js/owl.carousel.min.js', array( 'jquery' ), '1.0.0', true );
     wp_enqueue_script('instaslider-script-instafeed', plugin_dir_url(__FILE__) . '/js/instafeed.min.js', array( 'jquery' ), '1.0.0', true );
     wp_enqueue_script('instaslider-script', plugin_dir_url(__FILE__) . '/js/script.js', array( 'jquery' ), '1.0.0', true );
-}
 
+    $script_params = array(
+      'instaUserID' => "212129007",
+      'instaAccessToken' => "212129007.1677ed0.54011f83990548bc8070b30827050b3d",
+      'fileDirectory' => plugin_dir_url(__FILE__)
+  );
+
+  wp_localize_script( 'instaslider-script', 'scriptParams', $script_params );
+}
 add_action( 'wp_enqueue_scripts', 'enqueue_css_instaslider' );
 
 function instaslider_register_settings() {
@@ -65,10 +62,8 @@ function instaslider_options_page()
 <?php
 }
 
-
 function instafeed_shortcode_function() {
-  $intafeed_template = '<section id="instagram">
-    	<div class="account-info">
+  $intafeed_template = '<section id="instagram"><div class="account-info">
     		<div class="account-info-wrap">
     			<div class="insta-logo">
     				<img src="<?php echo get_template_directory_uri(); ?>/img/logo-insta.jpg" alt="">
@@ -80,11 +75,8 @@ function instafeed_shortcode_function() {
     			</div>
     		</div>
     	</div>
-
-    	<div class="insta-carousel owl-carousel owl-theme" id="instafeed">
-     </div>
+    	<div class="insta-carousel owl-carousel owl-theme" id="instafeed"></div>
     </section>';
   return $intafeed_template;
 }
-
 add_shortcode('instafeed', 'instafeed_shortcode_function');
