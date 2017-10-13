@@ -20,8 +20,8 @@ function enqueue_css_instaslider() {
     wp_enqueue_script('instaslider-script', plugin_dir_url(__FILE__) . '/js/script.js', array( 'jquery' ), '1.0.0', true );
 
     $script_params = array(
-      'instaUserID' => "212129007",
-      'instaAccessToken' => "212129007.1677ed0.54011f83990548bc8070b30827050b3d",
+      'instaUserID' => get_option('instaslider_insta_user_id'),
+      'instaAccessToken' => get_option('instaslider_insta_access_token'),
       'fileDirectory' => plugin_dir_url(__FILE__)
   );
 
@@ -30,8 +30,10 @@ function enqueue_css_instaslider() {
 add_action( 'wp_enqueue_scripts', 'enqueue_css_instaslider' );
 
 function instaslider_register_settings() {
-   add_option( 'instaslider_option_name', 'InstaSlider');
-   register_setting( 'instaslider_options_group', 'instaslider_option_name', 'instaslider_callback' );
+  add_option( 'instaslider_insta_user_id', '');
+  add_option( 'instaslider_insta_access_token', '');
+  register_setting( 'instaslider_options_group', 'instaslider_insta_user_id');
+  register_setting( 'instaslider_options_group', 'instaslider_insta_access_token');
 }
 add_action( 'admin_init', 'instaslider_register_settings' );
 
@@ -52,8 +54,12 @@ function instaslider_options_page()
   <p>Some text here.</p>
   <table>
   <tr valign="top">
-  <th scope="row"><label for="instaslider_option_name">Label</label></th>
-  <td><input type="text" id="instaslider_option_name" name="instaslider_option_name" value="<?php echo get_option('instaslider_option_name'); ?>" /></td>
+  <th scope="row"><label for="instaslider_insta_user_id">Instagram UserId</label></th>
+  <td><input type="text" id="instaslider_insta_user_id" name="instaslider_insta_user_id" value="<?php echo get_option('instaslider_insta_user_id'); ?>" /></td>
+  </tr>
+  <tr valign="top">
+  <th scope="row"><label for="instaslider_insta_access_token">Instagram Access Token</label></th>
+  <td><input type="text" id="instaslider_insta_access_token" name="instaslider_insta_access_token" value="<?php echo get_option('instaslider_insta_access_token'); ?>" /></td>
   </tr>
   </table>
   <?php  submit_button(); ?>
