@@ -33,30 +33,30 @@ function enqueue_css_instaslider() {
 add_action( 'wp_enqueue_scripts', 'enqueue_css_instaslider' );
 
 function instaslider_register_options_page() {
-  add_options_page('InstaSlider', 'InstaSlider', 'manage_options', 'myplugin', 'myplugin_options_page');
+  add_options_page('InstaSlider', 'InstaSlider', 'manage_options', 'instaslider', 'instaslider_options_page');
 }
 add_action('admin_menu', 'instaslider_register_options_page');
 
-function myplugin_register_settings() {
-   add_option( 'myplugin_option_name', 'This is my option value.');
-   register_setting( 'myplugin_options_group', 'myplugin_option_name', 'myplugin_callback' );
+function instaslider_register_settings() {
+   add_option( 'instaslider_option_name', 'InstaSlider');
+   register_setting( 'instaslider_options_group', 'instaslider_option_name', 'instaslider_callback' );
 }
-add_action( 'admin_init', 'myplugin_register_settings' );
+add_action( 'admin_init', 'instaslider_register_settings' );
 
-function myplugin_options_page()
+function instaslider_register_settings()
 {
 ?>
   <div>
   <?php screen_icon(); ?>
   <h2>My Plugin Page Title</h2>
   <form method="post" action="options.php">
-  <?php settings_fields( 'myplugin_options_group' ); ?>
+  <?php settings_fields( 'instaslider_options_group' ); ?>
   <h3>This is my option</h3>
   <p>Some text here.</p>
   <table>
   <tr valign="top">
-  <th scope="row"><label for="myplugin_option_name">Label</label></th>
-  <td><input type="text" id="myplugin_option_name" name="myplugin_option_name" value="<?php echo get_option('myplugin_option_name'); ?>" /></td>
+  <th scope="row"><label for="instaslider_option_name">Label</label></th>
+  <td><input type="text" id="instaslider_option_name" name="instaslider_option_name" value="<?php echo get_option('instaslider_option_name'); ?>" /></td>
   </tr>
   </table>
   <?php  submit_button(); ?>
