@@ -5,6 +5,9 @@ Description: To Show Instagram Feed slider
 Author: Siddharth Ashok
 Author URI: http://sidd.in
 Version: 1.0
+License: GPL2
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: insta-slider
 */
 
 // Enqueue files for Instaslider
@@ -40,14 +43,14 @@ function insta_settings_init(  ) {
 
 	add_settings_section(
 		'insta_options_section',
-		__( 'Your section description', 'wordpress' ),
+		__( 'Your section description', 'insta-slider' ),
 		'insta_settings_section_callback',
 		'insta_options_group'
 	);
 
 	add_settings_field(
 		'insta_user_id',
-		__( 'Instagram User ID', 'wordpress' ),
+		__( 'Instagram User ID', 'insta-slider' ),
 		'insta_user_id_render',
 		'insta_options_group',
 		'insta_options_section'
@@ -55,7 +58,7 @@ function insta_settings_init(  ) {
 
 	add_settings_field(
 		'insta_access_token',
-		__( 'Instagram Access Token', 'wordpress' ),
+		__( 'Instagram Access Token', 'insta-slider' ),
 		'insta_access_token_render',
 		'insta_options_group',
 		'insta_options_section'
@@ -63,7 +66,7 @@ function insta_settings_init(  ) {
 
 	// add_settings_field(
 	// 	'insta_radio_field_2',
-	// 	__( 'Settings field description', 'wordpress' ),
+	// 	__( 'Settings field description', 'insta-slider' ),
 	// 	'insta_radio_field_2_render',
 	// 	'insta_options_group',
 	// 	'insta_options_section'
@@ -71,7 +74,7 @@ function insta_settings_init(  ) {
   //
 	// add_settings_field(
 	// 	'insta_radio_field_3',
-	// 	__( 'Settings field description', 'wordpress' ),
+	// 	__( 'Settings field description', 'insta-slider' ),
 	// 	'insta_radio_field_3_render',
 	// 	'insta_options_group',
 	// 	'insta_options_section'
@@ -79,7 +82,7 @@ function insta_settings_init(  ) {
   //
 	// add_settings_field(
 	// 	'insta_radio_field_4',
-	// 	__( 'Settings field description', 'wordpress' ),
+	// 	__( 'Settings field description', 'insta-slider' ),
 	// 	'insta_radio_field_4_render',
 	// 	'insta_options_group',
 	// 	'insta_options_section'
@@ -132,7 +135,7 @@ function insta_radio_field_4_render(  ) {
 
 function insta_settings_section_callback(  ) {
 
-	echo __( 'This section description', 'wordpress' );
+	echo __( 'This section description', 'insta-slider' );
 
 }
 
